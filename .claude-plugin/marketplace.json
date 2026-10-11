@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "digital-marketing-agents",
+  "description": "Claude Code plugins for digital marketing, analytics and measurement work: nine specialist skills, reviewer and legal agents, a commit gate, and an SEO article writer.",
+  "owner": {
+    "name": "arcbaslow"
+  },
+  "plugins": [
+    {
+      "name": "digital-marketing-agents",
+      "source": "./plugins/digital-marketing-agents",
+      "description": "Nine specialist skills for analytics, measurement, tracking, paid media, SEO, data, architecture, client and content work, plus reviewer and legal agents and a commit gate."
+    },
+    {
+      "name": "seo-articles",
+      "source": "./plugins/seo-articles",
+      "description": "Write or revise SEO articles, explainers, glossary entries and calculator copy around one reader decision, with checks for numbers, schema and finance claims."
+    }
+  ]
+}

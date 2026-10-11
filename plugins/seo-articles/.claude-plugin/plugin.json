@@ -1,0 +1,11 @@
+{
+  "name": "seo-articles",
+  "version": "0.1.0",
+  "description": "Research, write or revise SEO articles, explainers, glossary entries and calculator copy in any project's content system, with reproducible worked examples, schema that matches the page, and a finance checklist for YMYL pages.",
+  "author": {
+    "name": "arcbaslow"
+  },
+  "repository": "https://github.com/arcbaslow/digital-marketing-agents",
+  "license": "MIT",
+  "keywords": ["seo", "content", "articles", "structured-data", "ymyl", "finance"]
+}

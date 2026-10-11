@@ -1,0 +1,11 @@
+{
+  "name": "digital-marketing-agents",
+  "version": "0.1.0",
+  "description": "Nine specialist skills for digital marketing and measurement work (analyst, measurement architect, tracking engineer, paid media, SEO, data engineer, software architect, account manager, content writer), reviewer and legal agents, and a hook that blocks git commit until the reviewer has stamped the current diff.",
+  "author": {
+    "name": "arcbaslow"
+  },
+  "repository": "https://github.com/arcbaslow/digital-marketing-agents",
+  "license": "MIT",
+  "keywords": ["digital-marketing", "analytics", "measurement", "tracking", "paid-media", "seo", "attribution", "code-review", "compliance"]
+}
