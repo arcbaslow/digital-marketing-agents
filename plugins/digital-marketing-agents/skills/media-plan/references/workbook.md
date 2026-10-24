@@ -60,7 +60,7 @@ Show actual spend, impressions, clicks, leads, sold, actual CTR/CPL/CPS, absolut
 
 Read `google-workspace` before the first connector call and leave API mechanics there. Both connector write tools parse like UI entry. Write formulas as formulas; for an identifier that looks like a number or a date, write one guarded value, read it back and only then fill the column. Do not assume a RAW option exists on those tools.
 
-Write one test formula, read its formula and calculated result, and check for parse errors before writing fifty. Whether the connector accepts commas or semicolons under a particular locale is unverified. Asset formulas use comma-separated English syntax as a testable starting point, not a guaranteed locale rule.
+Read `properties.locale` before the first formula. The connectors parse formulas in the spreadsheet's locale: commas in en_US, `;` in ru_RU and other comma-decimal locales, English function names in both. A formula written with the wrong separator is stored as `#ERROR!` ("Formula parse error") and switching the locale afterwards does not re-parse it, so rewrite it. API-created files start in en_US; set the locale first when the client works in ru_RU. Verified 25.10.2026 with the asset formulas in a ru_RU file.
 
 Formatting uses numeric sheet IDs with 0-based, end-exclusive ranges. Charts use `addChart` inside the sheet. Follow workspace guidance for field masks, batching, access and formula protection. Freeze headers and key columns. Use one base-currency format, one rate format and one date format; separately label USD. Test locale rendering rather than asserting a currency pattern works everywhere.
 

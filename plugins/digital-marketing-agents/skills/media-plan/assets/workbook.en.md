@@ -1,6 +1,6 @@
 # Media plan workbook
 
-Use the following tab order and cell map. Replace angle-bracket placeholders with approved values. Formulas use English functions and commas as a starting syntax; write and read back one test formula before filling ranges. Translate status literals only with the matching formulas and validation lists. Dates are real date values, not date-looking text; preserve Line IDs as text.
+Use the following tab order and cell map. Replace angle-bracket placeholders with approved values. Formulas use English function names with commas between arguments; the connectors parse them in the spreadsheet's locale, so in a comma-decimal locale such as ru_RU write every separator as `;` (a comma formula is stored as `#ERROR!`, and a later locale change does not repair it). Read the file's `properties.locale` before the first formula: files created through the API start in en_US. Tested 25.10.2026 in a ru_RU file: every formula below computes with `;`. Translate status literals only with the matching formulas and validation lists. Dates are real date values, not date-looking text; preserve Line IDs as text. Format the date columns of Flowchart and Plan vs actual as dates, because keyed lookups return serial numbers.
 
 ## 1. Summary
 

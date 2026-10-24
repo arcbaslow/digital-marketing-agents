@@ -90,8 +90,8 @@ Build one approval view and one calculation model that finance can reconcile wit
    Use the overlay's folder, naming convention and language; create the seven core tabs first.
    Apply the matching asset specification before adding monthly views or raw source tabs.
 
-2. Test one formula and read it back before writing the model.
-   Formula separator behaviour through connectors is unverified; do not assert a locale rule.
+2. Read the file's locale before the first formula and match its separators.
+   The connectors parse formulas in the spreadsheet's locale: en_US takes commas, ru_RU and other comma-decimal locales take `;`, and a mismatched formula is stored as `#ERROR!` that a later locale change does not repair.
    Both write tools parse like the Sheets UI, so send formulas as formulas and guard date-like or numeric text.
 
 3. Apply formatting using numeric sheet IDs and 0-based, end-exclusive ranges.
