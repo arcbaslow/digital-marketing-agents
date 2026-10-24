@@ -10,7 +10,7 @@ Skills and agents for analytics, tracking, paid media and SEO work in Claude Cod
 
 [What you can do](#what-you-can-do) | [Installation](#installation) | [Use cases](#use-cases) | [Overlays](#overlays) | [License](#license)
 
-A Claude Code plugin marketplace with two plugins. `digital-marketing-agents` adds nine specialist skills for analytics, measurement, tracking, paid media, SEO, data, architecture, client communication and public writing, plus a reviewer agent, a legal agent and a commit gate that waits for the reviewer's verdict. `seo-articles` writes and revises SEO articles around one reader decision. The skills carry the method only; client names, account IDs and data traps go in private overlay files that the skills read when present.
+A Claude Code plugin marketplace with two plugins. `digital-marketing-agents` adds twelve specialist skills for analytics, measurement, tracking, paid media, SEO, data, architecture, client communication, public writing and client documents, plus a reviewer agent, a legal agent and a commit gate that waits for the reviewer's verdict. `seo-articles` writes and revises SEO articles around one reader decision. The skills carry the method only; client names, account IDs and data traps go in private overlay files that the skills read when present.
 
 ## What you can do
 
@@ -32,6 +32,9 @@ The `digital-marketing-agents` plugin contains:
 | `software-architect` | A plan before code: files to touch, migrations, contracts, risks, verification |
 | `account-manager` | Client reports, status notes, decks, specs and open-question lists |
 | `content-writer` | Posts, site pages, case studies and landing copy without AI markers |
+| `dev-spec` | Google Docs developer specs with field contracts, verification and numeric acceptance criteria |
+| `media-plan` | Google Sheets budgets, forecasts, flights and plan vs actual reconciliation |
+| `client-deck` | Corporate reports, audit readouts and proposals in Google Slides or Figma Slides |
 | `reviewer` (agent) | A ship or fix-first verdict on a diff, deliverable, ad copy or analysis |
 | `legal` (agent) | A ranked risk register for finance ads, loan and insurance pages, app listings and privacy changes |
 
@@ -67,6 +70,12 @@ node digital-marketing-agents/install.js
 **Plan tracking for a new flow.** You ask: "How do we track the new checkout flow across web and app?" `measurement-architect` starts from the decision the data must support, maps which id joins which surface, and keeps the event set to the minimum. You get a design table with owner, trigger, destination, dedup key and consent gate per flow, plus the open questions.
 
 **Launch a campaign.** You ask: "Set up a Meta lead campaign for the new landing page." `paid-media` drafts objective, budget level, audience, explicit location types, UTM template and naming, and writes the stop rule before launch. You get the structure and a numbered list of proposed writes; nothing changes in the ad account until you confirm each one.
+
+**Hand off a developer spec.** You ask: "Write the ТЗ for the client's server-side conversion flow." `dev-spec` maps the systems and join keys, writes field contracts and placeholder requests, and defines verification, numeric acceptance and launch conditions. You get a Google Doc with numbered client questions, owners and a short handoff note.
+
+**Approve a media budget.** You ask: "Build next month's медиаплан and budget split." `media-plan` links assumptions to net and gross budgets, channel forecasts and weekly flights. You get a Google Sheets workbook with a one-screen approval view, monthly tabs and matching plan vs actual keys for finance.
+
+**Present the monthly results.** You ask: "Turn the results into a monthly report deck in Figma Slides." `client-deck` reconciles figures, writes claim titles and a decision-first summary, then builds from the standing style source. You get a Google Slides or Figma Slides deck with sources, explicit uncertainty, owners and dates for the asks, and an inspected forwarding copy.
 
 **Review before a commit.** You ask Claude to commit. The hook refuses the commit until `reviewer` has run on the diff. The reviewer checks scope, correctness, dead exports, comment density, secrets and PII, then returns `ship` or `fix first` with ranked findings and stamps the result. The commit goes through only on a ship stamp that matches the current working tree.
 
