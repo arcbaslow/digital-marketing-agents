@@ -4,7 +4,7 @@
 
 Use a read-ahead deck: a reader must understand the decision without hearing a talk. Start with the business situation, the material change or problem, and the answer. Write a titles-only storyboard before choosing layouts. Read it aloud as connected sentences; if a link is missing, repair the reasoning before adding graphics.
 
-Use title, executive summary on slide 2, evidence sections, "what we need from you", appendix index and backup slides. A monthly report often fits roughly 8-12 main slides, but this is an editorial starting point, not a researched limit. Keep recurring monthly sections in a stable order so readers can compare periods. The bilingual assets give separate report, audit and proposal spines.
+Use title, executive summary on slide 2, evidence sections, "what we need from you", appendix index and backup slides. A monthly report fits in about 8-12 main slides plus appendix, because the reader needs the change since last month, not the whole history. Keep recurring monthly sections in a stable order so readers can compare periods. The bilingual assets give separate report, audit and proposal spines.
 
 ## Executive summary
 
@@ -22,7 +22,7 @@ The body proves the title. Use the simplest evidence form and two or three short
 
 Build a figure register with slide ID, metric, value, source sheet/cell or export filter, period, unit, definition, calculation and verification status. Recompute derived totals and changes from source values. Check net/gross spend, time zone, attribution, lead/sale status, reversals and rounding. Fix discrepancies with the source owner or mark them unresolved. Never choose whichever source supports the stronger story.
 
-Use one resolved figure wherever it recurs. Reconcile before building and compare the rendered slide back to the register afterward. The consultant's prior monthly reconciliation found four real errors; visual polish cannot substitute for this check.
+Use one resolved figure wherever it recurs. Reconcile before building and compare the rendered slide back to the register afterward. A past monthly reconciliation found four wrong figures in a finished deck; polish does not replace this check.
 
 ## Bad news and uncertainty
 

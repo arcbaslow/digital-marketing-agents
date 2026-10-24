@@ -13,7 +13,7 @@
 | What are the exact values? | Table | Units in headers, aligned precision and right-aligned numbers |
 | Is the base too small? | Counts/table plus "not enough data" | Do not draw a trend from three points |
 
-Prefer a few simple monthly panels to one dense multi-week chart with competing panels. This reflects the consultant's client feedback, not a universal charting theorem. Keep identical scales for the same metric across comparable panels. Bars start at zero. If a line uses a restricted range, show the range clearly and explain any axis break.
+Prefer a few simple monthly panels to one dense multi-week chart with competing panels. A client reading on a laptop takes in one highlighted bar per panel faster than two dense panels. Keep identical scales for the same metric across comparable panels. Bars start at zero. If a line uses a restricted range, show the range clearly and explain any axis break.
 
 Use a pie only when part-to-whole matters, there are at most five categories and one slice dominates; otherwise prefer bars. Split crowded charts rather than adding a second axis. Four lines or stacked segments is a useful complexity check, not a quota to fill.
 
@@ -43,7 +43,7 @@ A decline needs size, period and cause status. Show confirmed causes separately 
 
 Use a table for exact lookup or mixed units. Keep column units explicit, row labels short, numbers aligned and only a few rules. Highlight one row or column rather than every good/bad cell. Split wide or tall tables into meaningful groups and keep full detail in the appendix.
 
-Test at laptop viewing size and in the requested export. For a new Figma style source, the route reference offers a starting type scale and grid, not an evidence-based universal floor. For Google Slides, use the existing master and split content when it does not fit. Never shrink everything to make a dense chart pass.
+Test at laptop viewing size and in the requested export. For a new Figma style source, the route reference gives a starting type scale and grid; adjust it once the deck has been read on a laptop. For Google Slides, use the existing master and split content when it does not fit. Never shrink everything to make a dense chart pass.
 
 ## Sources
 

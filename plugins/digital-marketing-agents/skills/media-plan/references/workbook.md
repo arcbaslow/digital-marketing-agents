@@ -2,7 +2,7 @@
 
 ## Tabs and source of truth
 
-Keep the seven core tabs in the order below. The consultant's order takes precedence over alternative template orders. Append one named monthly tab per month, then optional Raw and Reforecast tabs. Monthly tabs are formula views of Plan with the same columns, not independent input models.
+Keep the seven core tabs in the order below. Other templates put the flowchart first; keep Summary first, because the approver reads it and never the flowchart. Append one named monthly tab per month, then optional Raw and Reforecast tabs. Monthly tabs are formula views of Plan with the same columns, not independent input models.
 
 | Tab | Role | Required contents |
 | --- | --- | --- |
@@ -18,7 +18,7 @@ Line ID identifies a channel/product/format/objective/buying-model combination; 
 
 ## Formula chain and financial basis
 
-Use the asset's cells and headers consistently. Store net media as an input; calculate fee = net x fee rate, VAT = (net + fee) x VAT rate and gross = net x (1 + VAT) x (1 + fee). This is the required planning convention, with fee charged on net and VAT on media plus fee. Show any invoice or self-assessment difference in a finance reconciliation note or explicit bridge. Never invent a jurisdiction's tax treatment or hardcode a rate from a digest.
+Use the asset's cells and headers consistently. Store net media as an input; calculate fee = net x fee rate, VAT = (net + fee) x VAT rate and gross = net x (1 + VAT) x (1 + fee). This is the required planning convention, with fee charged on net and VAT on media plus fee. Show any invoice or self-assessment difference in a finance reconciliation note or explicit bridge. Never assume a jurisdiction's tax treatment or type a rate from memory; take VAT and fee from the contract.
 
 Convert gross to USD by dividing by FX, defined as base-currency units per USD. Label gross USD so it cannot be mistaken for working-media net. Keep production and other non-media costs separate with an explicit inclusion/exclusion statement; do not let them vanish from the approval ceiling.
 
@@ -30,7 +30,7 @@ Convert gross to USD by dividing by FX, defined as base-currency units per USD. 
 
 CTR and conversion rates are benchmark links in Plan. Derived actual CTR uses actual clicks / actual impressions. Use net in performance cost calculations and disclose that basis. Do not average row CPL, CTR or CR for totals: sum matching numerators and denominators, then divide. An awareness row does not inherit a lead target just because it shares a table.
 
-Guard each division using `IF(denominator=0, 0, ...)`. A zero from a guard is not a valid forecast when an input is absent. Add readiness states such as Ready, Missing assumptions, Pending actuals and Not applicable. Distinguish blank unknowns from numeric zero in the input register. Round with formats only.
+Guard each division using `IF(denominator=0, 0, ...)`. A zero from a guard is not a valid forecast when an input is absent. Add readiness states: No assumption set, Missing assumptions and Ready on Plan; Pending actuals and Unplanned spend on Plan vs actual. Distinguish blank unknowns from numeric zero in the input register. Round with formats only.
 
 ## Assumptions and validation
 
@@ -52,13 +52,13 @@ Name monthly tabs by the client's convention and month, with the Plan column lay
 
 Preserve Plan's A:AF columns and row order, with a formula copy linked by immutable key rather than a position that can silently shift. Append actual columns and variances as specified in the asset. Reconcile imports using Line ID plus month; preserve any source exports unchanged in clearly named Raw tabs. Include source, refresh date and mapping coverage checks.
 
-Match period boundaries, currency, time zone, attribution window/model, conversion definition and tax/fee basis. Mark unmapped actuals and late conversions as pending reconciliation. Choose the closing lag with the source owner; no universal one- or two-day delay is reliable. Compare approved Plan to actuals; keep later reforecast distinct.
+Match period boundaries, currency, time zone, attribution window/model, conversion definition and tax/fee basis. Mark unmapped actuals and late conversions as pending reconciliation. Agree the closing lag with the source owner, since platforms restate spend and conversions for days after month end. Compare approved Plan to actuals; keep later reforecast distinct.
 
-Show actual spend, impressions, clicks, leads, sold, actual CTR/CPL/CPS, absolute variance, relative variance and percent used. For key outcomes repeat variance pairs as needed. A zero-plan row with actual spend needs an "unplanned spend" status even though its guarded relative ratio is zero. Thresholds are approved assumptions, not universal 90/110 rules.
+Show actual spend, impressions, clicks, leads, sold, actual CTR/CPL/CPS, absolute variance, relative variance and percent used. For key outcomes repeat variance pairs as needed. A zero-plan row with actual spend needs an "unplanned spend" status even though its guarded relative ratio is zero. Pacing thresholds are inputs the client approves; 90-110% is a common starting band, not a rule.
 
 ## Sheets build notes
 
-Read `google-workspace` before the first connector call and leave API mechanics there. Both connector write tools parse like UI entry. Write formulas as formulas; use the tool-supported text guard, typically a leading apostrophe, for identifiers resembling numbers or dates, then read back. Do not assume a RAW option exists on those tools.
+Read `google-workspace` before the first connector call and leave API mechanics there. Both connector write tools parse like UI entry. Write formulas as formulas; for an identifier that looks like a number or a date, write one guarded value, read it back and only then fill the column. Do not assume a RAW option exists on those tools.
 
 Write one test formula, read its formula and calculated result, and check for parse errors before writing fifty. Whether the connector accepts commas or semicolons under a particular locale is unverified. Asset formulas use comma-separated English syntax as a testable starting point, not a guaranteed locale rule.
 

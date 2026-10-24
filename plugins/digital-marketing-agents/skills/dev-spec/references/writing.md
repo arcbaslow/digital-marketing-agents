@@ -4,7 +4,7 @@
 
 Write one idea per sentence, usually 15-20 words. Split sentences above about 25 words when doing so preserves the meaning. This is an editing heuristic, not a proven comprehension threshold for technical specs. Put reasoning in prose and enumerations in tables. Use sentence case and real heading levels without skipping levels.
 
-Define obligation words once: must is required for acceptance, must not is prohibited, should is a recommendation with a reason, may is permitted. In Russian use «должен», «нельзя», «рекомендуется» and «можно» consistently. Avoid "shall", which can read as either a requirement or a prediction. Do not uppercase requirement words.
+Define obligation words once: must is required for acceptance, must not is prohibited, should is a recommendation with a reason, may is permitted. In Russian use «должен», «не должен», «рекомендуется» and «допускается» consistently. Avoid "shall", which can read as either a requirement or a prediction. Do not uppercase requirement words.
 
 Use "When <trigger>, <system> must <response>." Add a stable requirement ID if QA or a reviewer needs to cite it. State the event's business purpose before its fields. "Track signup" is incomplete until it states the exact successful state, firing surface, repeated-trigger behaviour and expected recipient.
 

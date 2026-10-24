@@ -4,7 +4,7 @@ description: "Create or revise a paid media plan in Google Sheets that a client 
 argument-hint: "[client] [period] [budget and currency]"
 ---
 
-If `~/.claude/overlays/media-plan.md` exists, read it before starting: it holds house palette and font, client finance rules, file naming and the document register, Drive folders, approved assumptions and known traps. If a named source is missing, identify the gap before treating its values as approved.
+If `~/.claude/overlays/media-plan.md` exists, read it before starting: it holds client finance rules (VAT, fee and FX basis), benchmark sources, file naming and the document register, Drive folders and known traps. If a named source is missing, identify the gap before treating its values as approved.
 
 Build one approval view and one calculation model that finance can reconcile without rebuilding it.
 

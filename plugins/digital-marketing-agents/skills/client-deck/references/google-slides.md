@@ -12,7 +12,7 @@ Create new slides from the master's layouts, such as cover, chart plus takeaway,
 
 Connector positions are in EMU. Keep dimensions in one unit and convert deliberately if the tool supports another unit; do not pass pixel values as EMU. Text never shrinks to fit automatically in this route. Budget space for the title, evidence, takeaway and source. Split or edit overflowing content instead of assuming autofit will rescue it.
 
-Use the chosen font only after checking it in the target deck. Manrope is listed in Google Fonts with Cyrillic coverage, but the digest does not confirm availability and weight fidelity inside Slides or PDF export. Test the chosen family, Regular/Bold and Cyrillic where used; choose an available approved fallback if necessary. Do not promise variable-weight fidelity or custom font upload.
+Use the chosen font only after checking it in the target deck. Manrope is a Google Font with Cyrillic coverage; how its weights render inside Slides and in the PDF export is not confirmed. Test the chosen family, Regular/Bold and Cyrillic where used; choose an available approved fallback if necessary. Do not promise variable-weight fidelity or custom font upload.
 
 ## Charts, images and notes
 

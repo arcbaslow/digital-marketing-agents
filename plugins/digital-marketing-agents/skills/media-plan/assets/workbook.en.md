@@ -25,7 +25,7 @@ Keep this view on one screen. Display money as whole values, rates as one decima
 
 ## 2. Plan
 
-Row 1 is a single unmerged header row. Data starts in row 2. Repeat formulas downward; each row links to its own benchmark-set row. Row 14 of Assumptions below is the first benchmark row, not a shared benchmark for all channels. Validate objective as Performance or Awareness, and buying model as CPM or CPC; awareness uses CPM.
+Row 1 is a single unmerged header row. Data starts in row 2. Repeat formulas downward. Each row names its benchmark set in AE (a blue input key) and R, S, T, W, Z and AD look that key up in Assumptions, so sorting or inserting rows on either tab breaks nothing. Validate objective as Performance or Awareness, and buying model as CPM or CPC; awareness uses CPM.
 
 | Col | Header | Input or row 2 formula |
 | --- | --- | --- |
@@ -46,24 +46,24 @@ Row 1 is a single unmerged header row. Data starts in row 2. Repeat formulas dow
 | O | Gross budget, <base currency> | =IF(A2="","",J2*(1+K2)*(1+L2)) |
 | P | FX, <base currency>/USD | ='Assumptions'!$B$4 |
 | Q | Gross budget, USD | =IF(A2="","",IF(P2=0,0,O2/P2)) |
-| R | Assumed CPM, <base currency> | ='Assumptions'!E14 |
-| S | Assumed CPC, <base currency> | ='Assumptions'!F14 |
-| T | Assumed CTR | =IF(H2="Awareness","",'Assumptions'!G14) |
-| U | Impressions | =IF(A2="","",IF(I2="CPC",IF(T2=0,0,V2/T2),IF(R2=0,0,J2/R2*1000))) |
-| V | Clicks | =IF(A2="","",IF(H2="Awareness","",IF(I2="CPC",IF(S2=0,0,J2/S2),U2*T2))) |
-| W | CR to lead | =IF(H2="Awareness","",'Assumptions'!H14) |
-| X | Leads | =IF(A2="","",IF(H2="Awareness","",V2*W2)) |
+| R | Assumed CPM, <base currency> | =IF($AE2="","",INDEX('Assumptions'!$E$14:$E,MATCH($AE2,'Assumptions'!$A$14:$A,0))) |
+| S | Assumed CPC, <base currency> | =IF($AE2="","",INDEX('Assumptions'!$F$14:$F,MATCH($AE2,'Assumptions'!$A$14:$A,0))) |
+| T | Assumed CTR | =IF(OR(H2="Awareness",$AE2=""),"",INDEX('Assumptions'!$G$14:$G,MATCH($AE2,'Assumptions'!$A$14:$A,0))) |
+| U | Impressions | =IF(A2="","",IF(I2="CPC",IF(OR(N(S2)=0,N(T2)=0),0,J2/N(S2)/N(T2)),IF(N(R2)=0,0,J2/N(R2)*1000))) |
+| V | Clicks | =IF(A2="","",IF(H2="Awareness","",IF(I2="CPC",IF(N(S2)=0,0,J2/N(S2)),U2*N(T2)))) |
+| W | CR to lead | =IF(OR(H2="Awareness",$AE2=""),"",INDEX('Assumptions'!$H$14:$H,MATCH($AE2,'Assumptions'!$A$14:$A,0))) |
+| X | Leads | =IF(A2="","",IF(H2="Awareness","",N(V2)*N(W2))) |
 | Y | CPL, <base currency> net | =IF(A2="","",IF(H2="Awareness","",IF(X2=0,0,J2/X2))) |
-| Z | CR to sale | =IF(H2="Awareness","",'Assumptions'!I14) |
-| AA | Issued or sold | =IF(A2="","",IF(H2="Awareness","",X2*Z2)) |
+| Z | CR to sale | =IF(OR(H2="Awareness",$AE2=""),"",INDEX('Assumptions'!$I$14:$I,MATCH($AE2,'Assumptions'!$A$14:$A,0))) |
+| AA | Issued or sold | =IF(A2="","",IF(H2="Awareness","",N(X2)*N(Z2))) |
 | AB | CPS, <base currency> net | =IF(A2="","",IF(H2="Awareness","",IF(AA2=0,0,J2/AA2))) |
-| AC | Reach, people | =IF(A2="","",IF(H2="Awareness",IF(AD2=0,0,U2/AD2),"")) |
-| AD | Frequency | =IF(H2="Awareness",'Assumptions'!J14,"") |
-| AE | Assumption set | ='Assumptions'!A14 |
+| AC | Reach, people | =IF(A2="","",IF(H2="Awareness",IF(N(AD2)=0,0,U2/N(AD2)),"")) |
+| AD | Frequency | =IF(AND(H2="Awareness",$AE2<>""),INDEX('Assumptions'!$J$14:$J,MATCH($AE2,'Assumptions'!$A$14:$A,0)),"") |
+| AE | Assumption set | <key from Assumptions column A, blue input> |
 | AF | Readiness | Use formula below, translated with status literals if needed |
 
 ```gs
-=IF(A2="","",IF(OR(J2="",K2="",L2="",P2=0,AE2="",'Assumptions'!$B$2="",'Assumptions'!$B$3="",'Assumptions'!$B$4="",'Assumptions'!N14<>"Approved",AND(I2="CPM",R2=0),AND(I2="CPC",OR(S2=0,T2=0)),AND(H2="Awareness",AD2=0),AND(H2="Performance",COUNTBLANK('Assumptions'!G14:I14)>0)),"Missing assumptions","Ready"))
+=IF(A2="","",IF(OR($AE2="",ISNA(MATCH($AE2,'Assumptions'!$A$14:$A,0))),"No assumption set",IF(OR(J2="",'Assumptions'!$B$2="",'Assumptions'!$B$3="",P2=0,INDEX('Assumptions'!$N$14:$N,MATCH($AE2,'Assumptions'!$A$14:$A,0))<>"Approved",AND(I2="CPM",N(R2)=0),AND(I2="CPC",N(S2)=0),AND(H2="Performance",OR(N(T2)=0,ISBLANK(INDEX('Assumptions'!$H$14:$H,MATCH($AE2,'Assumptions'!$A$14:$A,0))),ISBLANK(INDEX('Assumptions'!$I$14:$I,MATCH($AE2,'Assumptions'!$A$14:$A,0))))),AND(H2="Awareness",N(AD2)=0),AND(H2="Awareness",I2="CPC")),"Missing assumptions","Ready")))
 ```
 
 Budget block is J:Q, performance is R:V, business is W:AB, and awareness measures are AC:AD. No division is hidden with IFERROR. Guarded zeros are not valid forecasts until AF is Ready. Show missing rows in Summary; do not submit a complete-looking forecast while any required line is incomplete.
@@ -74,7 +74,7 @@ For totals use SUM on additive columns. Calculate aggregate performance CTR as S
 
 | Col/row | Header | Value or formula |
 | --- | --- | --- |
-| A:E, row 2 onward | Line ID / Month / Start / End / Net budget | Keyed links to Plan A, B, C, D, J |
+| A:E, row 2 onward | Line ID / Month / Start / End / Net budget | A:B from the key list; C:E keyed lookups, for C: =IF($A2="","",INDEX(FILTER('Plan'!C$2:C,'Plan'!$A$2:$A=$A2,'Plan'!$B$2:$B=$B2),1)), copied to D (Plan D) and, with the return column changed to J, to E (Plan J); #N/A means the key is missing in Plan |
 | F1 onward | Week starting <Monday date> | Real Monday dates; subsequent header =F1+7 |
 | F2 onward | Weekly net spend | Formula below for uniform daily allocation |
 | After last week | Allocated / Difference | =SUM(F2:<last week cell>); =<allocated cell>-E2 |

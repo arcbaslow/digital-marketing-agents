@@ -4,7 +4,7 @@ description: "Write or revise a client developer specification in Google Docs fo
 argument-hint: "[client] [topic] [audience]"
 ---
 
-If `~/.claude/overlays/dev-spec.md` exists, read it before starting: it holds house palette and font, client document rules, file naming and the document register, Drive folders, system context and known traps. If a named note is missing, say so and keep that dependency visible.
+If `~/.claude/overlays/dev-spec.md` exists, read it before starting: it holds client document rules, file naming and the document register, Drive folders, where the client's architecture notes live and known traps. If a named note is missing, say so and keep that dependency visible.
 
 Write a contract a developer can build and QA can verify, with an overview a product owner can approve.
 
@@ -73,14 +73,12 @@ Write a contract a developer can build and QA can verify, with an overview a pro
 - State consent, minimisation, retention, redaction and authorised recipients for each data flow.
 - Never include secrets; say who issues a token and where the authorised team retrieves it.
 - Use hashes and angle-bracket placeholders in examples; never paste personal data or live identifiers.
-- Explain that hashing does not by itself remove privacy obligations.
 - Keep request examples consistent with the field table, including optional fields and missing-value behaviour.
 - Number questions so the client can answer by number; do not hide unresolved choices in normative text.
 - Spell out acronyms on first use; keep platform-specific names in developer sections.
 - Use prose for reasoning and tables for fields, mappings, ownership and checks.
 - Use short sentences and sentence case; avoid vague words such as "fast" or "etc." in requirements.
 - Keep long schema dumps out of the mixed-reader body; retain one short request per component there.
-- Do not claim the document complies with a standard merely because its structure resembles one.
 
 ## Build
 
@@ -89,7 +87,7 @@ Write a contract a developer can build and QA can verify, with an overview a pro
    Create a new version or edit the authorised draft; preserve the earlier approved contract.
 
 2. Create the Doc with Drive `create_file` and `contentMimeType: "text/html"`.
-   Convert headings, paragraphs, lists, bold and links to native formatting, then edit with the Docs connector.
+   The upload converts headings, paragraphs, lists, bold and links to native formatting; check the result, then edit with the Docs connector.
    Follow `google-workspace` for positions, tabs and suggesting mode instead of guessing indexes.
 
 3. Apply real Heading 1-3 styles and use Pages for a forwardable spec.
