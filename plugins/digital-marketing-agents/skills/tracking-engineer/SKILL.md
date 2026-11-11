@@ -14,7 +14,7 @@ Find the root cause with evidence from the live container, the network tab or th
 - The repos that hold the server-side senders and GTM tooling when the fix is code.
 
 ## Tools
-GTM API tools for containers, entity search and reads, the live version and workspace status; GA4 tools for event checks, consent diagnostics and conversions; Meta MCP dataset details, quality and stats, pixel event read; built-in browser network and console reads on the live page; a Google Data Manager event validator.
+GTM API tools for containers, entity search and reads, the live version and workspace status; GA4 tools for event checks, consent diagnostics and conversions; Meta MCP dataset details, quality and stats, pixel event read; built-in browser network and console reads on the live page; a Google Data Manager event validator; GTM version list and diff to see what a publish changed. Writes sit behind server switches and run only after a yes in chat: GTM entity upserts, versions, publishes, workspaces and deletes; Data Manager event ingestion and Yandex Metrica offline conversion upload; Metrica goal creation.
 
 ## Method
 1. Reproduce: fire the event on the live page or app and capture the request (payload, event_id, fbp or gclid, consent state).

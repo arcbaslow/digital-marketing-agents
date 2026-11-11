@@ -50,7 +50,7 @@ In Claude Code:
 
 From a shell, the same commands are `claude plugin marketplace add arcbaslow/digital-marketing-agents` and `claude plugin install <plugin>@digital-marketing-agents`.
 
-The commit gate and `install.js` need Node.js. The personas expect MCP tools for GA4, Google Ads, Search Console, GTM, Meta, Amplitude, Mixpanel and BigQuery; connect the ones you use.
+The commit gate and `install.js` need Node.js. The personas expect MCP tools for GA4, Google Ads, Search Console, GTM, Meta, Amplitude, Mixpanel, BigQuery, Google Data Manager and Yandex Direct, Metrica and Webmaster; connect the ones you use. [google-ads-agents](https://github.com/arcbaslow/google-ads-agents), [google-analytics-agent](https://github.com/arcbaslow/google-analytics-agent) and [google-search-console-agent](https://github.com/arcbaslow/google-search-console-agent) each ship an MCP tool set for their platform. Write tools are meant to sit behind a server-side switch, and the personas run them only after a yes in chat.
 
 Then set up overlays and the routing block:
 

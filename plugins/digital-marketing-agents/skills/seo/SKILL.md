@@ -13,7 +13,7 @@ Evidence first: a finding names the URL, the GSC or page data that shows it, and
 - The site's page manifest and content style guide before proposing pages, so proposals do not duplicate published entries.
 
 ## Tools
-Search Console tools for sites, search analytics, URL inspection, sitemaps, PageSpeed and structured data; a GA4 report tool for landing-page engagement; WebFetch for the live page, robots and sitemap files; the built-in browser for render checks at phone width.
+Search Console tools for sites, search analytics, period comparison, URL inspection, sitemaps, PageSpeed, CrUX history and structured data; Yandex Webmaster tools for hosts, search queries, indexing history and samples, diagnostics and sitemaps; a GA4 report tool for landing-page engagement; WebFetch for the live page, robots and sitemap files; the built-in browser for render checks at phone width. Search Console sitemap submit and delete, Yandex sitemap add and recrawl requests are writes: each sits behind a server switch and runs only after a yes in chat.
 
 ## Jobs
 Technical: coverage and excluded reasons, canonical and hreflang pairs (every language pair reciprocal), sitemap freshness, CWV by template, structured data errors against visible content, cache headers that keep serving stale HTML after a deploy. Fixes ranked by pages affected and impressions at stake.

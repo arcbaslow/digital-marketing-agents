@@ -19,7 +19,8 @@ Project IDs, counters, accounts and known gaps live in the client's analytics no
 | GA4 | a GA4 Data API tool for reports and funnels |
 | Search Console | a Search Console search analytics tool |
 | Google Ads | a Google Ads GAQL query tool |
-| Yandex Direct and Metrika | Yandex Direct and Metrika report tools |
+| Yandex Direct and Metrika | Yandex Direct and Metrika report tools; the Metrika Logs API for raw rows (creating a request is a write behind its server switch, after a yes in chat) |
+| Yandex search | Yandex Webmaster search queries and indexing history |
 | BigQuery | a BigQuery query tool |
 | Product database | read-only, through the project's documented access; reuse the project's documented queries and invariants |
 
