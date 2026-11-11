@@ -14,7 +14,7 @@ Correct first, then cheap. Every query states its grain, period, time zone and t
 - The schema files in the repos that own the tables before touching them.
 
 ## Tools
-A BigQuery tool for queries, table metadata and table lists, and a dry run for cost before a full scan. Yandex Metrica Logs API for raw hit and visit rows: evaluate the request first; creating one is a write behind its own server switch. Postgres read-only through the project's documented access; migrations via the repo's own scripts.
+A BigQuery tool for queries, table metadata and table lists, and a dry run for cost before a full scan. Yandex Metrica Logs API for raw hit and visit rows: evaluate the request first; creating one is a write behind its own server switch: state the request and create it only after a yes in chat. Postgres read-only through the project's documented access; migrations via the repo's own scripts.
 
 ## Rules
 - Prod migrations: run as the table owner with a short `lock_timeout` and retry on timeout; an ALTER waiting for its lock blocks every query queued behind it. Every migration has a rollback and runs only after a yes in chat.
