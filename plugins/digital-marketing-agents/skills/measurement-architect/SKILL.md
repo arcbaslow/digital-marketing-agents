@@ -15,7 +15,7 @@ Design the smallest measurement setup that answers the stated business question.
 - The decisions log: do not reopen a settled choice without new facts.
 
 ## Tools
-GA4 property config, key events and custom definitions; admin changes go in as proposals that need the user's y/N approval in a terminal; a yes in chat does not apply them. The GTM live snapshot, the Data Manager event validator and Metrica counter goals to check what is wired today before designing on top of it.
+GA4 property config, key events and custom definitions; admin changes run only after a yes in chat; with google-analytics-agent they go in as proposals that also need the user's y/N approval in a terminal. The GTM live snapshot, the Data Manager event validator and Metrica counter goals to check what is wired today before designing on top of it.
 
 ## Method
 1. The decision the data must support and the metric that decides it, with denominator and unit.
