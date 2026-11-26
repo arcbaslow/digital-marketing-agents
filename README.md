@@ -50,7 +50,7 @@ In Claude Code:
 
 From a shell, the same commands are `claude plugin marketplace add arcbaslow/digital-marketing-agents` and `claude plugin install <plugin>@digital-marketing-agents`.
 
-The commit gate and `install.js` need Node.js. The personas expect MCP tools for GA4, Google Ads, Search Console, GTM, Meta, Amplitude, Mixpanel, BigQuery, Google Data Manager and Yandex Direct, Metrica and Webmaster; connect the ones you use. [google-ads-agents](https://github.com/arcbaslow/google-ads-agents), [google-analytics-agent](https://github.com/arcbaslow/google-analytics-agent) and [google-search-console-agent](https://github.com/arcbaslow/google-search-console-agent) each ship an MCP tool set for their platform. Write tools are meant to sit behind a server-side switch, and the personas run them only after a yes in chat. `client-deck`, `dev-spec` and `media-plan` use Anthropic's `google-workspace` skill for Google Docs, Sheets and Slides, and the Figma MCP for Figma Slides; without them they say so and fall back. Where a skill mentions client notes, a decisions log or a template, it means whatever your overlay points to.
+The commit gate and `install.js` need Node.js. The personas expect MCP tools for GA4, Google Ads, Search Console, GTM, Meta, Amplitude, Mixpanel, BigQuery, Google Data Manager and Yandex Direct, Metrica and Webmaster; connect the ones you use. [google-ads-agents](https://github.com/arcbaslow/google-ads-agents), [google-analytics-agent](https://github.com/arcbaslow/google-analytics-agent) and [google-search-console-agent](https://github.com/arcbaslow/google-search-console-agent) each ship an MCP tool set for their platform. Write tools are meant to sit behind a server-side switch, and the personas run them only after a yes in chat. `client-deck`, `dev-spec` and `media-plan` use the Google Drive, Docs, Sheets and Slides connectors with Anthropic's `google-workspace` skill, and the Figma MCP with its `figma-use` skill for Figma Slides; without them they say so and fall back. Where a skill mentions client notes, a decisions log or a template, it means whatever your overlay points to.
 
 Then set up overlays and the routing block:
 
@@ -63,23 +63,77 @@ node digital-marketing-agents/install.js
 
 ## Use cases
 
-**Explain a drop.** You ask: "Leads from Meta fell 30% last week. Is that real?" `analyst` reads the source map in your overlay, queries Meta and the product analytics tool for the same window and time zone, and names known losses (iOS storage, platform dedup) before reading the gap. You get the answer with the number in the first line, one table per cut, the query to rerun it and what could change the conclusion.
+<img src="assets/explain-drop.webp" alt="Six navy blocks rising like a bar chart, the last one shorter, with a brass magnifying glass over it and a green line tracing the tops." width="360" align="right">
 
-**Find doubled conversions.** You ask: "Meta reports twice the purchases our backend has." `tracking-engineer` fires the event on the live page, captures the Pixel and CAPI payloads and compares the `event_id` both sides send. You get the root cause with evidence and the smallest fix; nothing is published until you say yes.
+### Explain a drop
 
-**Plan tracking for a new flow.** You ask: "How do we track the new checkout flow across web and app?" `measurement-architect` starts from the decision the data must support, maps which id joins which surface, and keeps the event set to the minimum. You get a design table with owner, trigger, destination, dedup key and consent gate per flow, plus the open questions.
+You ask: "Leads from Meta fell 30% last week. Is that real?" `analyst` reads the source map in your overlay, queries Meta and the product analytics tool for the same window and time zone, and names known losses (iOS storage, platform dedup) before reading the gap. You get the answer with the number in the first line, one table per cut, the query to rerun it and what could change the conclusion.
 
-**Launch a campaign.** You ask: "Set up a Meta lead campaign for the new landing page." `paid-media` drafts objective, budget level, audience, explicit location types, UTM template and naming, and writes the stop rule before launch. You get the structure and a numbered list of proposed writes; nothing changes in the ad account until you confirm each one.
+<br clear="all">
 
-**Hand off a developer spec.** You ask: "Write the ТЗ for the client's server-side conversion flow." `dev-spec` maps the systems and join keys, writes field contracts and placeholder requests, and defines verification, numeric acceptance and launch conditions. You get a Google Doc with numbered client questions, owners and a short handoff note.
+<img src="assets/doubled-conversions.webp" alt="Two identical navy luggage tags tied by one green thread, beside a brass balance scale holding level." width="360" align="left">
 
-**Approve a media budget.** You ask: "Build next month's медиаплан and budget split." `media-plan` links assumptions to net and gross budgets, channel forecasts and weekly flights. You get a Google Sheets workbook with a one-screen approval view, monthly tabs and matching plan vs actual keys for finance.
+### Find doubled conversions
 
-**Present the monthly results.** You ask: "Turn the results into a monthly report deck in Figma Slides." `client-deck` reconciles figures, writes claim titles and a decision-first summary, then builds from the standing style source. You get a Google Slides or Figma Slides deck with sources, explicit uncertainty, owners and dates for the asks, and an inspected forwarding copy.
+You ask: "Meta reports twice the purchases our backend has." `tracking-engineer` fires the event on the live page, captures the Pixel and CAPI payloads and compares the `event_id` both sides send. You get the root cause with evidence and the smallest fix; nothing is published until you say yes.
 
-**Review before a commit.** You ask Claude to commit. The hook refuses the commit until `reviewer` has run on the diff. The reviewer checks scope, correctness, dead exports, comment density, secrets and PII, then returns `ship` or `fix first` with ranked findings and stamps the result. The commit goes through only on a ship stamp that matches the current working tree.
+<br clear="all">
 
-**Write a finance explainer.** You ask: "Rewrite our credit card fees explainer." `seo-articles` reads the project's style guide and manifest, rebuilds the page around one reader decision, recomputes the worked example in a script and keeps the JSON-LD identical to the visible page. `legal` then returns a risk register for the rate and fee claims, citing the current rule text.
+<img src="assets/plan-tracking.webp" alt="A blueprint with a tiny navy laptop, phone and server joined by a green line, and a brass drafting compass." width="360" align="right">
+
+### Plan tracking for a new flow
+
+You ask: "How do we track the new checkout flow across web and app?" `measurement-architect` starts from the decision the data must support, maps which id joins which surface, and keeps the event set to the minimum. You get a design table with owner, trigger, destination, dedup key and consent gate per flow, plus the open questions.
+
+<br clear="all">
+
+<img src="assets/launch-campaign.webp" alt="A navy megaphone on a launch stand, wired by a green line to a brass gauge whose needle stops short of its limit." width="360" align="left">
+
+### Launch a campaign
+
+You ask: "Set up a Meta lead campaign for the new landing page." `paid-media` drafts objective, budget level, audience, explicit location types, UTM template and naming, and writes the stop rule before launch. You get the structure and a numbered list of proposed writes; nothing changes in the ad account until you confirm each one.
+
+<br clear="all">
+
+<img src="assets/dev-spec.webp" alt="An open navy folder of ruled spec sheets with checkboxes, a fountain pen, a brass binder clip and a green ribbon." width="360" align="right">
+
+### Hand off a developer spec
+
+You ask: "Write the ТЗ for the client's server-side conversion flow." `dev-spec` maps the systems and join keys, writes field contracts and placeholder requests, and defines verification, numeric acceptance and launch conditions. You get a Google Doc with numbered client questions, owners and a short handoff note.
+
+<br clear="all">
+
+<img src="assets/media-budget.webp" alt="Four stacks of navy and brass coins of different heights on a planner strip, joined by a green line, next to a brass abacus." width="360" align="left">
+
+### Approve a media budget
+
+You ask: "Build next month's медиаплан and budget split." `media-plan` links assumptions to net and gross budgets, channel forecasts and weekly flights. You get a Google Sheets workbook with a one-screen approval view, monthly tabs and matching plan vs actual keys for finance.
+
+<br clear="all">
+
+<img src="assets/monthly-deck.webp" alt="A small navy easel holding a presentation card with one bar underlined in green, a brass pointer in front." width="360" align="right">
+
+### Present the monthly results
+
+You ask: "Turn the results into a monthly report deck in Figma Slides." `client-deck` reconciles figures, writes claim titles and a decision-first summary, then builds from the standing style source. You get a Google Slides or Figma Slides deck with sources, explicit uncertainty, owners and dates for the asks, and an inspected forwarding copy.
+
+<br clear="all">
+
+<img src="assets/commit-gate.webp" alt="A green line ending at a closed navy turnstile, with a navy sheet and a brass stamp waiting beside it." width="360" align="left">
+
+### Review before a commit
+
+You ask Claude to commit. The hook refuses the commit until `reviewer` has run on the diff. The reviewer checks scope, correctness, dead exports, comment density, secrets and PII, then returns `ship` or `fix first` with ranked findings and stamps the result. The commit goes through only on a ship stamp that matches the current working tree.
+
+<br clear="all">
+
+<img src="assets/finance-explainer.webp" alt="A navy calculator, a brass balance scale with a booklet in one pan, and a folded leaflet, linked by a green line." width="360" align="right">
+
+### Write a finance explainer
+
+You ask: "Rewrite our credit card fees explainer." `seo-articles` reads the project's style guide and manifest, rebuilds the page around one reader decision, recomputes the worked example in a script and keeps the JSON-LD identical to the visible page. `legal` then returns a risk register for the rate and fee claims, citing the current rule text.
+
+<br clear="all">
 
 ## Overlays
 
