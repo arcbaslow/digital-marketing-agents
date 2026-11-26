@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="Digital Marketing Agents: skills and agents for analytics, tracking, paid media and SEO work in Claude Code." width="100%">
+  <img src="assets/banner.webp" alt="Digital Marketing Agents: five specialists around a map of a small town, measuring, listening, counting, writing and waiting to speak." width="100%">
 </p>
 
 # Digital Marketing Agents
@@ -63,7 +63,7 @@ node digital-marketing-agents/install.js
 
 ## Use cases
 
-<img src="assets/explain-drop.webp" alt="Six navy blocks rising like a bar chart, the last one shorter, with a brass magnifying glass over it and a green line tracing the tops." width="360" align="right">
+<img src="assets/explain-drop.webp" alt="A ferry clerk counts too few passengers on the main gangway while half of them leave by a second gangway he cannot see." width="360" align="right">
 
 ### Explain a drop
 
@@ -71,7 +71,7 @@ You ask: "Leads from Meta fell 30% last week. Is that real?" `analyst` reads the
 
 <br clear="all">
 
-<img src="assets/doubled-conversions.webp" alt="Two identical navy luggage tags tied by one green thread, beside a brass balance scale holding level." width="360" align="left">
+<img src="assets/doubled-conversions.webp" alt="A baker holds up two identical receipts from two cash registers while the one customer walks out with one cake." width="360" align="left">
 
 ### Find doubled conversions
 
@@ -79,7 +79,7 @@ You ask: "Meta reports twice the purchases our backend has." `tracking-engineer`
 
 <br clear="all">
 
-<img src="assets/plan-tracking.webp" alt="A blueprint with a tiny navy laptop, phone and server joined by a green line, and a brass drafting compass." width="360" align="right">
+<img src="assets/plan-tracking.webp" alt="An architect and a plumber kneel over a plan, drawing one pipe between a house, a shed and a cafe before anyone digs." width="360" align="right">
 
 ### Plan tracking for a new flow
 
@@ -87,7 +87,7 @@ You ask: "How do we track the new checkout flow across web and app?" `measuremen
 
 <br clear="all">
 
-<img src="assets/launch-campaign.webp" alt="A navy megaphone on a launch stand, wired by a green line to a brass gauge whose needle stops short of its limit." width="360" align="left">
+<img src="assets/launch-campaign.webp" alt="A balloon crew member holds the last rope and looks back at a woman with a clipboard who has not nodded yet." width="360" align="left">
 
 ### Launch a campaign
 
@@ -95,7 +95,7 @@ You ask: "Set up a Meta lead campaign for the new landing page." `paid-media` dr
 
 <br clear="all">
 
-<img src="assets/dev-spec.webp" alt="An open navy folder of ruled spec sheets with checkboxes, a fountain pen, a brass binder clip and a green ribbon." width="360" align="right">
+<img src="assets/dev-spec.webp" alt="A tailor hands a marked sewing pattern across the table to a seamstress, with every piece pinned and measured." width="360" align="right">
 
 ### Hand off a developer spec
 
@@ -103,7 +103,7 @@ You ask: "Write the ТЗ for the client's server-side conversion flow." `dev-spe
 
 <br clear="all">
 
-<img src="assets/media-budget.webp" alt="Four stacks of navy and brass coins of different heights on a planner strip, joined by a green line, next to a brass abacus." width="360" align="left">
+<img src="assets/media-budget.webp" alt="A gardener shares one watering can between four raised beds of different sizes, with past weeks crossed off on the shed." width="360" align="left">
 
 ### Approve a media budget
 
@@ -111,7 +111,7 @@ You ask: "Build next month's медиаплан and budget split." `media-plan` 
 
 <br clear="all">
 
-<img src="assets/monthly-deck.webp" alt="A small navy easel holding a presentation card with one bar underlined in green, a brass pointer in front." width="360" align="right">
+<img src="assets/monthly-deck.webp" alt="A town crier reads the month from a long scroll on the town hall steps while a shopkeeper raises a question." width="360" align="right">
 
 ### Present the monthly results
 
@@ -119,7 +119,7 @@ You ask: "Turn the results into a monthly report deck in Figma Slides." `client-
 
 <br clear="all">
 
-<img src="assets/commit-gate.webp" alt="A green line ending at a closed navy turnstile, with a navy sheet and a brass stamp waiting beside it." width="360" align="left">
+<img src="assets/commit-gate.webp" alt="A loaded cart waits at a toll bridge barrier while an inspector stamps the crates one by one." width="360" align="left">
 
 ### Review before a commit
 
@@ -127,7 +127,7 @@ You ask Claude to commit. The hook refuses the commit until `reviewer` has run o
 
 <br clear="all">
 
-<img src="assets/finance-explainer.webp" alt="A navy calculator, a brass balance scale with a booklet in one pan, and a folded leaflet, linked by a green line." width="360" align="right">
+<img src="assets/finance-explainer.webp" alt="A pharmacist weighs a dose on a balance scale and points an elderly customer to the leaflet." width="360" align="right">
 
 ### Write a finance explainer
 
